@@ -120,15 +120,15 @@ button#check-answer:hover {
 
 <script>
     const playerData = [
-    { imgSrc: 'austin_reaves.jpg', alt: 'Austin Reaves', lakers: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'anthony_davis.jpg', alt: 'Anthony Davis', lakers: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'derrick_rose.jpg', alt: 'Derrick Rose', lakers: false, mvp: true, spurs: false, drafted2003: false },
-    { imgSrc: 'joel_embiid.jpg', alt: 'Joel Embiid', lakers: false, mvp: true, spurs: false, drafted2003: false },
+    { imgSrc: 'austin_reaves.avif', alt: 'Austin Reaves', lakers: true, mvp: false, spurs: false, drafted2003: false },
+    { imgSrc: 'anthony_davis.jpeg', alt: 'Anthony Davis', lakers: true, mvp: false, spurs: false, drafted2003: false },
+    { imgSrc: 'derrick_rose.avif', alt: 'Derrick Rose', lakers: false, mvp: true, spurs: false, drafted2003: false },
+    { imgSrc: 'joel_embiid.avif', alt: 'Joel Embiid', lakers: false, mvp: true, spurs: false, drafted2003: false },
     { imgSrc: 'dwyane_wade.jpg', alt: 'Dwyane Wade', lakers: false, mvp: false, spurs: false, drafted2003: true },
-    { imgSrc: 'tim_duncan.jpg', alt: 'Tim Duncan', lakers: false, mvp: false, spurs: true, drafted2003: false },
-    { imgSrc: 'tony_parker.jpg', alt: 'Tony Parker', lakers: false, mvp: false, spurs: true, drafted2003: false },
-    { imgSrc: 'nick_young.jpg', alt: 'Nick Young', lakers: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'george_gervin.jpg', alt: 'George Gervin', lakers: false, mvp: false, spurs: true, drafted2003: false },
+    { imgSrc: 'tim_duncan.avif', alt: 'Tim Duncan', lakers: false, mvp: false, spurs: true, drafted2003: false },
+    { imgSrc: 'tony_parker.png', alt: 'Tony Parker', lakers: false, mvp: false, spurs: true, drafted2003: false },
+    { imgSrc: 'nick_young.png', alt: 'Nick Young', lakers: true, mvp: false, spurs: false, drafted2003: false },
+    { imgSrc: 'victor.png', alt: 'Vic', lakers: false, mvp: false, spurs: true, drafted2003: false },
     { imgSrc: 'pau_gasol.jpg', alt: 'Pau Gasol', lakers: true, mvp: false, spurs: false, drafted2003: false },
     { imgSrc: 'dirk_nowitzki.jpg', alt: 'Dirk Nowitzki', lakers: false, mvp: true, spurs: false, drafted2003: false },
     { imgSrc: 'chris_bosh.jpg', alt: 'Chris Bosh', lakers: false, mvp: false, spurs: false, drafted2003: true },
@@ -162,7 +162,7 @@ button#check-answer:hover {
             box.dataset.drafted2003 = player.drafted2003;
 
             const img = document.createElement('img');
-            img.src = `https://via.placeholder.com/200x200?text=${player.name}`;
+            img.src = player.imgSrc;
             img.alt = player.name;
             box.appendChild(img);
 
