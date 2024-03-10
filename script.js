@@ -108,4 +108,4 @@ boxes.forEach(box => {
             box.style.color = '#fff';
             selectedCategories.push(box.dataset.category);
         }
-   
+    }
