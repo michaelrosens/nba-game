@@ -25,10 +25,10 @@
     }
 
     .grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Ensure 4 columns on regular monitors */
-        gap: 20px;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust the minimum width of each box */
+    gap: 20px;
+}
 
     .box {
         width: 200px;
