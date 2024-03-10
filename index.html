@@ -120,22 +120,22 @@
 
 <script>
     const playerData = [
-    { imgSrc: 'austin_reaves.avif', alt: 'Austin Reaves', lakers: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'anthony_davis.jpeg', alt: 'Anthony Davis', lakers: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'derrick_rose.avif', alt: 'Derrick Rose', lakers: false, mvp: true, spurs: false, drafted2003: false },
-    { imgSrc: 'joel_embiid.avif', alt: 'Joel Embiid', lakers: false, mvp: true, spurs: false, drafted2003: false },
-    { imgSrc: 'dwyane_wade.jpg', alt: 'Dwyane Wade', lakers: false, mvp: false, spurs: false, drafted2003: true },
-    { imgSrc: 'tim_duncan.avif', alt: 'Tim Duncan', lakers: false, mvp: false, spurs: true, drafted2003: false },
-    { imgSrc: 'tony_parker.png', alt: 'Tony Parker', lakers: false, mvp: false, spurs: true, drafted2003: false },
-    { imgSrc: 'nick_young.png', alt: 'Nick Young', lakers: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'victor.png', alt: 'Vic', lakers: false, mvp: false, spurs: true, drafted2003: false },
-    { imgSrc: 'pau_gasol.jpg', alt: 'Pau Gasol', lakers: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'dirk_nowitzki.jpg', alt: 'Dirk Nowitzki', lakers: false, mvp: true, spurs: false, drafted2003: false },
-    { imgSrc: 'chris_bosh.jpg', alt: 'Chris Bosh', lakers: false, mvp: false, spurs: false, drafted2003: true },
-    { imgSrc: 'dennis_rodman.jpg', alt: 'Dennis Rodman', lakers: false, mvp: false, spurs: true, drafted2003: false },
-    { imgSrc: 'i.png', alt: 'Carmelo', lakers: false, mvp: false, spurs: false, drafted2003: true },
-    { imgSrc: 'kevin_garnett.jpg', alt: 'Kevin Garnett', lakers: false, mvp: true, spurs: false, drafted2003: false },
-    { imgSrc: 'kyle_korver.jpg', alt: 'Kyle Korver', lakers: false, mvp: false, spurs: false, drafted2003: true }
+    { imgSrc: 'kareem.jpg', alt: 'Kareem', the: true, mvp: false, spurs: false, drafted2003: false },
+    { imgSrc: 'james_harden.jpg', alt: 'Harden', the: true, mvp: false, spurs: false, drafted2003: false },
+    { imgSrc: 'derrick_rose.avif', alt: 'Derrick Rose', the: false, mvp: true, spurs: false, drafted2003: false },
+    { imgSrc: 'joel_embiid.avif', alt: 'Joel Embiid', the: false, mvp: true, spurs: false, drafted2003: false },
+    { imgSrc: 'dwyane_wade.jpg', alt: 'Dwyane Wade', the: false, mvp: false, spurs: false, drafted2003: true },
+    { imgSrc: 'tim_duncan.avif', alt: 'Tim Duncan', the: false, mvp: false, spurs: true, drafted2003: false },
+    { imgSrc: 'tony_parker.png', alt: 'Tony Parker', the: false, mvp: false, spurs: true, drafted2003: false },
+    { imgSrc: 'allen_iverson.jpg', alt: 'Iverson', the: true, mvp: false, spurs: false, drafted2003: false },
+    { imgSrc: 'victor.png', alt: 'Vic', the: false, mvp: false, spurs: true, drafted2003: false },
+    { imgSrc: 'hakeem.jpg', alt: 'Hakeem', the: true, mvp: false, spurs: false, drafted2003: false },
+    { imgSrc: 'dirk_nowitzki.jpg', alt: 'Dirk Nowitzki', the: false, mvp: true, spurs: false, drafted2003: false },
+    { imgSrc: 'chris_bosh.jpg', alt: 'Chris Bosh', the: false, mvp: false, spurs: false, drafted2003: true },
+    { imgSrc: 'kawhi.jpg', alt: 'Kawhi', the: false, mvp: false, spurs: true, drafted2003: false },
+    { imgSrc: 'i.png', alt: 'Carmelo', the: false, mvp: false, spurs: false, drafted2003: true },
+    { imgSrc: 'kevin_garnett.jpg', alt: 'Kevin Garnett', the: false, mvp: true, spurs: false, drafted2003: false },
+    { imgSrc: 'kyle_korver.jpg', alt: 'Kyle Korver', the: false, mvp: false, spurs: false, drafted2003: true }
 ];
 
     const boxes = document.querySelectorAll('.box');
@@ -153,7 +153,7 @@
             const box = document.createElement('div');
             box.classList.add('box');
             box.dataset.name = player.name;
-            box.dataset.lakers = player.lakers;
+            box.dataset.the = player.the;
             box.dataset.mvp = player.mvp;
             box.dataset.spurs = player.spurs;
             box.dataset.drafted2003 = player.drafted2003;
@@ -259,8 +259,8 @@
     // Function to get category label
     function getCategoryLabel(category) {
         switch (category) {
-            case 'lakers':
-                return 'Played for the Lakers';
+            case 'the':
+                return 'Nickname starting with "The" ';
             case 'mvp':
                 return 'Won MVP Award';
             case 'spurs':
