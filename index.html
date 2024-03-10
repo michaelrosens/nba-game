@@ -185,58 +185,59 @@
     }
 
     function checkAnswer() {
-        const categories = ['lakers', 'mvp', 'spurs', 'drafted2003'];
-        let similarity = '';
+    const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // Include the "the" category
+    let similarity = '';
 
-        categories.forEach(category => {
-            const values = selectedBoxes.map(box => box.dataset[category]);
-            if (values.every((val, i, arr) => val === arr[0])&& values[0] === 'true') {
-                similarity = category;
-            }
+    categories.forEach(category => {
+        const values = selectedBoxes.map(box => box.dataset[category]);
+        if (values.every((val, i, arr) => val === arr[0]) && values[0] === 'true') {
+            similarity = category;
+        }
+    });
+
+    if (similarity) {
+        result.textContent = 'You are correct!';
+        result.style.color = '#007bff';
+
+        // Disable click on selected boxes
+        selectedBoxes.forEach(box => {
+            box.removeEventListener('click', () => toggleSelection(box));
+            box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(similarity)}</span>`;
+            box.classList.add('correct-answer');
         });
 
-        if (similarity) {
-            result.textContent = 'You are correct!';
-            result.style.color = '#007bff';
+        // Clear selected boxes
+        selectedBoxes = [];
+    } else {
+        result.textContent = 'Incorrect selection. Please try again.';
+        result.style.color = '#ff0000';
 
-            // Disable click on selected boxes
-            selectedBoxes.forEach(box => {
-                box.removeEventListener('click', () => toggleSelection(box));
-                box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(similarity)}</span>`;
-                box.classList.add('correct-answer');
-            });
-
-            // Clear selected boxes
-            selectedBoxes = [];
-        } else {
-            result.textContent = 'Incorrect selection. Please try again.';
-            result.style.color = '#ff0000';
-
-            // Shake animation for incorrect selection
-            selectedBoxes.forEach(box => {
-                box.classList.add('shake');
-                setTimeout(() => {
-                    box.classList.remove('shake');
-                }, 500);
-            });
-
-            // Turn selected boxes red temporarily
-            selectedBoxes.forEach(box => {
-                box.classList.add('incorrect-selection');
-                setTimeout(() => {
-                    box.classList.remove('incorrect-selection');
-                }, 500);
-            });
-
-            // Clear selected boxes after a delay
+        // Shake animation for incorrect selection
+        selectedBoxes.forEach(box => {
+            box.classList.add('shake');
             setTimeout(() => {
-                selectedBoxes.forEach(box => {
-                    box.classList.remove('selected');
-                });
-                selectedBoxes = [];
-            }, 1000);
-        }
+                box.classList.remove('shake');
+            }, 500);
+        });
+
+        // Turn selected boxes red temporarily
+        selectedBoxes.forEach(box => {
+            box.classList.add('incorrect-selection');
+            setTimeout(() => {
+                box.classList.remove('incorrect-selection');
+            }, 500);
+        });
+
+        // Clear selected boxes after a delay
+        setTimeout(() => {
+            selectedBoxes.forEach(box => {
+                box.classList.remove('selected');
+            });
+            selectedBoxes = [];
+        }, 1000);
     }
+}
+
 
     checkAnswerButton.addEventListener('click', () => {
         checkAnswer();
