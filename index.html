@@ -13,138 +13,142 @@
 <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #2980b9, #6dd5fa, #ffffff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .h1{ 
-  font-family: "Rowdies", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 90px;
+    font-family: "Rowdies", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 90px;
 }
 
 .h2{
     font-family: "Rowdies", sans-serif;
-  font-weight: 200;
-  font-style: normal; 
-  text-align: center; /* Horizontal centering */
+    font-weight: 200;
+    font-style: normal; 
+    text-align: center; /* Horizontal centering */
     display: flex; /* Enable Flexbox */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
-    }
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 20px;
-        color: #333;
-    }
-
-    .grid {
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust the minimum width of each box */
     gap: 20px;
 }
 
-    .box {
-        width: 200px;
-        height: 200px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        cursor: pointer;
-        position: relative;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    }
+.box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
 
-    .box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .box.selected {
-    position: relative; /* Ensure the position is relative for absolute positioning of the overlay */
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .box.selected::after {
-    content: ''; /* Create a pseudo-element */
-    position: absolute; /* Position the overlay */
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 195, 255, 0.541); /* Semi-transparent black */
-    border-radius: 10px; /* Match the border radius of the box */
-    pointer-events: none; /* Ensure the overlay doesn't block clicks */
+    background-color: rgba(0, 195, 255, 0.541);
+    border-radius: 10px;
+    pointer-events: none;
 }
 
+.reveal-name-button {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+.reveal-name-button:hover {
+    background-color: #0056b3;
+}
 
-    .result {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 18px;
-    }
+.name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+}
 
-    .shake {
-        animation: shake 0.5s;
-    }
+#check-answer {
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-    @keyframes shake {
-        0% { transform: translateX(0); }
-        20% { transform: translateX(-10px); }
-        40% { transform: translateX(10px); }
-        60% { transform: translateX(-10px); }
-        80% { transform: translateX(10px); }
-        100% { transform: translateX(0); }
-    }
+#check-answer:hover {
+    background-color: #0056b3;
+}
 
-    .correct-answer {
-        background-color: #4CAF50;
-    }
-
-    button#check-answer {
-        display: block;
-        margin: 20px auto;
-        padding: 15px 30px;
-        font-size: 20px;
-        font-family: Arial, sans-serif;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    button#check-answer:hover {
-        background-color: #0056b3;
-    }
-
-    /* Add the following CSS */
-    .correct-answer .name {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 24px;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        text-align: center;
-        width: 100%;
-    }
+.fade {
+    opacity: 0.5;
+}
 
 </style>
 </head>
@@ -159,23 +163,23 @@
 
 <script>
     const playerData = [
-    { imgSrc: 'jjj.jpg', alt: 'JJJ', the: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'giannis.jpg', alt: 'giannis', the: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'derrick_rose.avif', alt: 'Derrick Rose', the: false, mvp: true, spurs: false, drafted2003: false },
-    { imgSrc: 'joel_embiid.avif', alt: 'Joel Embiid', the: false, mvp: true, spurs: false, drafted2003: false },
-    { imgSrc: 'dwyane_wade.jpg', alt: 'Dwyane Wade', the: false, mvp: false, spurs: false, drafted2003: true },
-    { imgSrc: 'tim_duncan.avif', alt: 'Tim Duncan', the: false, mvp: false, spurs: true, drafted2003: false },
-    { imgSrc: 'tony_parker.png', alt: 'Tony Parker', the: false, mvp: false, spurs: true, drafted2003: false },
-    { imgSrc: 'gobert.jpg', alt: 'Iverson', the: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'victor.png', alt: 'Vic', the: false, mvp: false, spurs: true, drafted2003: false },
-    { imgSrc: 'hakeem.jpg', alt: 'Hakeem', the: true, mvp: false, spurs: false, drafted2003: false },
-    { imgSrc: 'dirk_nowitzki.jpg', alt: 'Dirk Nowitzki', the: false, mvp: true, spurs: false, drafted2003: false },
-    { imgSrc: 'chris_bosh.jpg', alt: 'Chris Bosh', the: false, mvp: false, spurs: false, drafted2003: true },
-    { imgSrc: 'kawhi.jpg', alt: 'Kawhi', the: false, mvp: false, spurs: true, drafted2003: false },
-    { imgSrc: 'i.png', alt: 'Carmelo', the: false, mvp: false, spurs: false, drafted2003: true },
-    { imgSrc: 'kevin_garnett.jpg', alt: 'Kevin Garnett', the: false, mvp: true, spurs: false, drafted2003: false },
-    { imgSrc: 'kyle_korver.jpg', alt: 'Kyle Korver', the: false, mvp: false, spurs: false, drafted2003: true }
-];
+        { imgSrc: 'jjj.jpg', alt: 'JJJ', name: 'Jaren Jackson Jr.', the: true, mvp: false, spurs: false, drafted2003: false },
+        { imgSrc: 'giannis.jpg', alt: 'Giannis', name: 'Giannis Antetokounmpo', the: true, mvp: false, spurs: false, drafted2003: false },
+        { imgSrc: 'derrick_rose.avif', alt: 'Derrick Rose', name: 'Derrick Rose', the: false, mvp: true, spurs: false, drafted2003: false },
+        { imgSrc: 'joel_embiid.avif', alt: 'Joel Embiid', name: 'Joel Embiid', the: false, mvp: true, spurs: false, drafted2003: false },
+        { imgSrc: 'dwyane_wade.jpg', alt: 'Dwyane Wade', name: 'Dwyane Wade', the: false, mvp: false, spurs: false, drafted2003: true },
+        { imgSrc: 'tim_duncan.avif', alt: 'Tim Duncan', name: 'Tim Duncan', the: false, mvp: false, spurs: true, drafted2003: false },
+        { imgSrc: 'tony_parker.png', alt: 'Tony Parker', name: 'Tony Parker', the: false, mvp: false, spurs: true, drafted2003: false },
+        { imgSrc: 'gobert.jpg', alt: 'Rudy Gobert', name: 'Rudy Gobert', the: true, mvp: false, spurs: false, drafted2003: false },
+        { imgSrc: 'victor.png', alt: 'Victor Wembanyama', name: 'Victor Oladipo', the: false, mvp: false, spurs: true, drafted2003: false },
+        { imgSrc: 'hakeem.jpg', alt: 'Hakeem Olajuwon', name: 'Hakeem Olajuwon', the: true, mvp: false, spurs: false, drafted2003: false },
+        { imgSrc: 'dirk_nowitzki.jpg', alt: 'Dirk Nowitzki', name: 'Dirk Nowitzki', the: false, mvp: true, spurs: false, drafted2003: false },
+        { imgSrc: 'chris_bosh.jpg', alt: 'Chris Bosh', name: 'Chris Bosh', the: false, mvp: false, spurs: false, drafted2003: true },
+        { imgSrc: 'kawhi.jpg', alt: 'Kawhi Leonard', name: 'Kawhi Leonard', the: false, mvp: false, spurs: true, drafted2003: false },
+        { imgSrc: 'i.png', alt: 'Carmelo Anthony', name: 'Carmelo Anthony', the: false, mvp: false, spurs: false, drafted2003: true },
+        { imgSrc: 'kevin_garnett.jpg', alt: 'Kevin Garnett', name: 'Kevin Garnett', the: false, mvp: true, spurs: false, drafted2003: false },
+        { imgSrc: 'kyle_korver.jpg', alt: 'Kyle Korver', name: 'Kyle Korver', the: false, mvp: false, spurs: false, drafted2003: true }
+    ];
 
     const boxes = document.querySelectorAll('.box');
     const checkAnswerButton = document.getElementById('check-answer');
@@ -202,6 +206,20 @@
             img.alt = player.name;
             box.appendChild(img);
 
+            const revealNameButton = document.createElement('button');
+            revealNameButton.textContent = 'Reveal Name';
+            revealNameButton.classList.add('reveal-name-button');
+            revealNameButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                toggleRevealName(box, revealNameButton);
+            });
+            box.appendChild(revealNameButton);
+
+            const playerNameDisplay = document.createElement('div');
+            playerNameDisplay.textContent = player.name;
+            playerNameDisplay.classList.add('name');
+            box.appendChild(playerNameDisplay);
+
             box.addEventListener('click', () => toggleSelection(box));
             grid.appendChild(box);
         });
@@ -224,59 +242,70 @@
     }
 
     function checkAnswer() {
-    const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // Include the "the" category
-    let similarity = '';
+        const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // Include the "the" category
+        let similarity = '';
 
-    categories.forEach(category => {
-        const values = selectedBoxes.map(box => box.dataset[category]);
-        if (values.every((val, i, arr) => val === arr[0]) && values[0] === 'true') {
-            similarity = category;
-        }
-    });
-
-    if (similarity) {
-        result.textContent = 'You are correct!';
-        result.style.color = '#007bff';
-
-        // Disable click on selected boxes
-        selectedBoxes.forEach(box => {
-            box.removeEventListener('click', () => toggleSelection(box));
-            box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(similarity)}</span>`;
-            box.classList.add('correct-answer');
+        categories.forEach(category => {
+            const values = selectedBoxes.map(box => box.dataset[category]);
+            if (values.every((val, i, arr) => val === arr[0]) && values[0] === 'true') {
+                similarity = category;
+            }
         });
 
-        // Clear selected boxes
-        selectedBoxes = [];
-    } else {
-        result.textContent = 'Incorrect selection. Please try again.';
-        result.style.color = '#ff0000';
+        if (similarity) {
+            result.textContent = 'You are correct!';
+            result.style.color = '#007bff';
 
-        // Shake animation for incorrect selection
-        selectedBoxes.forEach(box => {
-            box.classList.add('shake');
-            setTimeout(() => {
-                box.classList.remove('shake');
-            }, 500);
-        });
-
-        // Turn selected boxes red temporarily
-        selectedBoxes.forEach(box => {
-            box.classList.add('incorrect-selection');
-            setTimeout(() => {
-                box.classList.remove('incorrect-selection');
-            }, 500);
-        });
-
-        // Clear selected boxes after a delay
-        setTimeout(() => {
+            // Disable click on selected boxes
             selectedBoxes.forEach(box => {
-                box.classList.remove('selected');
+                box.removeEventListener('click', () => toggleSelection(box));
+                box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(similarity)}</span>`;
+                box.classList.add('correct-answer');
             });
-            selectedBoxes = [];
-        }, 1000);
-    }
-}
 
+            // Clear selected boxes
+            selectedBoxes = [];
+        } else {
+            result.textContent = 'Incorrect selection. Please try again.';
+            result.style.color = '#ff0000';
+
+            // Shake animation for incorrect selection
+            selectedBoxes.forEach(box => {
+                box.classList.add('shake');
+                setTimeout(() => {
+                    box.classList.remove('shake');
+                }, 500);
+            });
+
+            // Turn selected boxes red temporarily
+            selectedBoxes.forEach(box => {
+                box.classList.add('incorrect-selection');
+                setTimeout(() => {
+                    box.classList.remove('incorrect-selection');
+                }, 500);
+            });
+
+            // Clear selected boxes after a delay
+            setTimeout(() => {
+                selectedBoxes.forEach(box => {
+                    box.classList.remove('selected');
+                });
+                selectedBoxes = [];
+            }, 1000);
+        }
+    }
+
+    function toggleRevealName(box, revealButton) {
+        const playerNameDisplay = box.querySelector('.name');
+        const buttonLabel = revealButton.textContent;
+        if (buttonLabel === 'Reveal Name') {
+            playerNameDisplay.style.display = 'block';
+            revealButton.textContent = 'Unreveal Name';
+        } else {
+            playerNameDisplay.style.display = 'none';
+            revealButton.textContent = 'Reveal Name';
+        }
+    }
 
     checkAnswerButton.addEventListener('click', () => {
         checkAnswer();
