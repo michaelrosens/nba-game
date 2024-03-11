@@ -150,6 +150,41 @@ h1 {
     opacity: 0.5;
 }
 
+/* Add these styles at the end of your CSS */
+
+.shake {
+    animation: shakeAnimation 0.5s ease;
+}
+
+@keyframes shakeAnimation {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.correct-answer {
+    pointer-events: none; /* Disable click on selected boxes */
+    border: 4px solid #00FF00; /* Green border */
+    background-color: #6effb1; /* Light green background */
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Green shadow */
+}
+
+.correct-answer .name {
+    display: block !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: #000;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+
 </style>
 </head>
 <body>
@@ -171,7 +206,7 @@ h1 {
         { imgSrc: 'tim_duncan.avif', alt: 'Tim Duncan', name: 'Tim Duncan', the: false, mvp: false, spurs: true, drafted2003: false },
         { imgSrc: 'tony_parker.png', alt: 'Tony Parker', name: 'Tony Parker', the: false, mvp: false, spurs: true, drafted2003: false },
         { imgSrc: 'gobert.jpg', alt: 'Rudy Gobert', name: 'Rudy Gobert', the: true, mvp: false, spurs: false, drafted2003: false },
-        { imgSrc: 'victor.png', alt: 'Victor Wembanyama', name: 'Victor Oladipo', the: false, mvp: false, spurs: true, drafted2003: false },
+        { imgSrc: 'victor.png', alt: 'Victor Oladipo', name: 'Victor Oladipo', the: false, mvp: false, spurs: true, drafted2003: false },
         { imgSrc: 'hakeem.jpg', alt: 'Hakeem Olajuwon', name: 'Hakeem Olajuwon', the: true, mvp: false, spurs: false, drafted2003: false },
         { imgSrc: 'dirk_nowitzki.jpg', alt: 'Dirk Nowitzki', name: 'Dirk Nowitzki', the: false, mvp: true, spurs: false, drafted2003: false },
         { imgSrc: 'chris_bosh.jpg', alt: 'Chris Bosh', name: 'Chris Bosh', the: false, mvp: false, spurs: false, drafted2003: true },
@@ -182,9 +217,10 @@ h1 {
     ];
 
     const boxes = document.querySelectorAll('.box');
-    const checkAnswerButton = document.getElementById('check-answer');
-    const result = document.querySelector('.result');
-    let selectedBoxes = [];
+const checkAnswerButton = document.getElementById('check-answer');
+const result = document.querySelector('.result');
+let selectedBoxes = [];
+
 
     function generatePlayerBoxes() {
         const grid = document.querySelector('.grid');
@@ -224,6 +260,7 @@ h1 {
             grid.appendChild(box);
         });
     }
+    
 
     function toggleSelection(box) {
         if (selectedBoxes.includes(box)) {
@@ -242,58 +279,65 @@ h1 {
     }
 
     function checkAnswer() {
-        const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // Include the "the" category
-        let similarity = '';
+    const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // Include the "the" category
+    let similarity = '';
 
-        categories.forEach(category => {
-            const values = selectedBoxes.map(box => box.dataset[category]);
-            if (values.every((val, i, arr) => val === arr[0]) && values[0] === 'true') {
-                similarity = category;
-            }
+    categories.forEach(category => {
+        const values = selectedBoxes.map(box => box.dataset[category]);
+        if (values.every((val, i, arr) => val === arr[0]) && values[0] === 'true') {
+            similarity = category;
+        }
+    });
+
+    if (similarity) {
+        result.textContent = 'You are correct!';
+        result.style.color = '#00FF00'; // Green color for correct message
+        result.style.fontSize = '24px'; // Larger font size for correct message
+        result.style.textAlign = 'center'; // Center text
+        result.style.fontFamily = '"Rowdies", sans-serif'; // Use the same font as h1
+
+        // Disable click on selected boxes
+        selectedBoxes.forEach(box => {
+            box.removeEventListener('click', () => toggleSelection(box));
+            box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(similarity)}</span>`;
+            box.classList.add('correct-answer');
         });
 
-        if (similarity) {
-            result.textContent = 'You are correct!';
-            result.style.color = '#007bff';
+        // Clear selected boxes
+        selectedBoxes = [];
+    } else {
+        result.textContent = 'Incorrect selection. Please try again.';
+        result.style.color = '#FF0000'; // Red color for incorrect message
+        result.style.fontSize = '24px'; // Larger font size for incorrect message
+        result.style.textAlign = 'center'; // Center text
+        result.style.fontFamily = '"Rowdies", sans-serif'; // Use the same font as h1
 
-            // Disable click on selected boxes
-            selectedBoxes.forEach(box => {
-                box.removeEventListener('click', () => toggleSelection(box));
-                box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(similarity)}</span>`;
-                box.classList.add('correct-answer');
-            });
-
-            // Clear selected boxes
-            selectedBoxes = [];
-        } else {
-            result.textContent = 'Incorrect selection. Please try again.';
-            result.style.color = '#ff0000';
-
-            // Shake animation for incorrect selection
-            selectedBoxes.forEach(box => {
-                box.classList.add('shake');
-                setTimeout(() => {
-                    box.classList.remove('shake');
-                }, 500);
-            });
-
-            // Turn selected boxes red temporarily
-            selectedBoxes.forEach(box => {
-                box.classList.add('incorrect-selection');
-                setTimeout(() => {
-                    box.classList.remove('incorrect-selection');
-                }, 500);
-            });
-
-            // Clear selected boxes after a delay
+        // Shake animation for incorrect selection
+        selectedBoxes.forEach(box => {
+            box.classList.add('shake');
             setTimeout(() => {
-                selectedBoxes.forEach(box => {
-                    box.classList.remove('selected');
-                });
-                selectedBoxes = [];
-            }, 1000);
-        }
+                box.classList.remove('shake');
+            }, 500);
+        });
+
+        // Turn selected boxes red temporarily
+        selectedBoxes.forEach(box => {
+            box.classList.add('incorrect-selection');
+            setTimeout(() => {
+                box.classList.remove('incorrect-selection');
+            }, 500);
+        });
+
+        // Clear selected boxes after a delay
+        setTimeout(() => {
+            selectedBoxes.forEach(box => {
+                box.classList.remove('selected');
+            });
+            selectedBoxes = [];
+        }, 1000);
     }
+}
+
 
     function toggleRevealName(box, revealButton) {
         const playerNameDisplay = box.querySelector('.name');
