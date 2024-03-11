@@ -202,7 +202,7 @@
     </div>
     <button id="check-answer" disabled class="h2">Check Selected Similarity</button>
     <p class="result"></p>
-    <div id="lives">Lives: <span id="lives-count">⚫⚫⚫</span></div> <!-- Updated lives display -->
+    <div id="lives">Lives: <span id="lives-count">🏀 🏀 🏀 </span></div> <!-- Updated lives display -->
 </div>
 
 <script>
@@ -216,8 +216,8 @@
         { imgSrc: 'tony_parker.png', alt: 'Tony Parker', name: 'Tony Parker', the: false, mvp: false, spurs: true, drafted2003: false },
         { imgSrc: 'damian.jpg', alt: 'Rudy Gobert', name: 'Damian Lillard', the: true, mvp: false, spurs: false, drafted2003: false },
         { imgSrc: 'victor.png', alt: 'Victor Oladipo', name: 'Victor Wembanyama', the: false, mvp: false, spurs: true, drafted2003: false },
-        { imgSrc: 'hakeem.jpg', alt: 'Hakeem Olajuwon', name: 'Hakeem Olajuwon', the: true, mvp: false, spurs: false, drafted2003: false },
-        { imgSrc: 'james_harden.jpg', alt: 'Dirk Nowitzki', name: 'James Harden', the: false, mvp: true, spurs: false, drafted2003: false },
+        { imgSrc: 'james_harden.jpg', alt: 'Hakeem Olajuwon', name: 'James Harden', the: true, mvp: false, spurs: false, drafted2003: false },
+        { imgSrc: 'dirk_nowitzki.jpg', alt: 'Dirk Nowitzki', name: 'Dirk Nowitzki', the: false, mvp: true, spurs: false, drafted2003: false },
         { imgSrc: 'chris_bosh.jpg', alt: 'Chris Bosh', name: 'Chris Bosh', the: false, mvp: false, spurs: false, drafted2003: true },
         { imgSrc: 'kawhi.jpg', alt: 'Kawhi Leonard', name: 'Kawhi Leonard', the: false, mvp: false, spurs: true, drafted2003: false },
         { imgSrc: 'i.png', alt: 'Carmelo Anthony', name: 'Carmelo Anthony', the: false, mvp: false, spurs: false, drafted2003: true },
@@ -417,7 +417,7 @@
     function getCategoryLabel(category) {
         switch (category) {
             case 'the':
-                return 'Won a DPOY';
+                return 'Top 4 in all-time 3 pointers made';
             case 'mvp':
                 return 'Won MVP Award';
             case 'spurs':
