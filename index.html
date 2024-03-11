@@ -49,13 +49,9 @@
             font-weight: 200;
             font-style: normal;
             text-align: center;
-            /* Horizontal centering */
             display: flex;
-            /* Enable Flexbox */
             justify-content: center;
-            /* Center horizontally */
             align-items: center;
-            /* Center vertically */
         }
 
         .container {
@@ -73,7 +69,6 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            /* Adjust the minimum width of each box */
             gap: 20px;
         }
 
@@ -139,41 +134,31 @@
         }
 
         .gradient-button {
-    background: linear-gradient(45deg, #4CAF50, #2196F3);
-    border: none;
-    color: white;
-    padding: 15px 30px;
-    /* Increased padding for larger size */
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    /* Increased font size for larger buttons */
-    cursor: pointer;
-    border-radius: 10px;
-    /* Rounded corners for a smoother appearance */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    /* Added transition */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Added shadow for depth */
-    width: 400px; /* Added width */
-    height: 60px; /* Added height */
-}
-
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 200px;
+        }
 
         .gradient-button:hover {
             background: linear-gradient(45deg, #45a049, #1e87db);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-            /* Adjusted shadow on hover */
         }
 
         .gradient-button:active {
             transform: scale(0.95);
-            /* Added scale effect on click for glossy appearance */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            /* Adjusted shadow on click */
         }
-
 
         #check-answer {
             margin: 20px auto;
@@ -199,42 +184,30 @@
             animation: shakeAnimation 0.5s ease;
         }
 
-
-
         .gradient-button {
             background: linear-gradient(45deg, #4CAF50, #2196F3);
             border: none;
             color: white;
             padding: 15px 30px;
-            /* Increased padding for larger size */
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 20px;
-            /* Increased font size for larger buttons */
             cursor: pointer;
             border-radius: 10px;
-            /* Rounded corners for a smoother appearance */
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            /* Added transition */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            /* Added shadow for depth */
         }
 
         .gradient-button:hover {
             background: linear-gradient(45deg, #45a049, #1e87db);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-            /* Adjusted shadow on hover */
         }
 
         .gradient-button:active {
             transform: scale(0.95);
-            /* Added scale effect on click for glossy appearance */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            /* Adjusted shadow on click */
         }
-
-
 
         @keyframes shakeAnimation {
             0% {
@@ -260,22 +233,16 @@
 
         .correct-answer {
             pointer-events: none;
-            /* Disable click on selected boxes */
             border: 4px solid #00FF00;
-            /* Green border */
             background-color: #6effb1;
-            /* Light green background */
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-            /* Green shadow */
         }
 
         #shuffle-cards,
         #check-answer {
             display: block;
             margin: 2px auto;
-            /* Adjust vertical spacing between buttons */
         }
-
 
         .correct-answer .name {
             display: block !important;
@@ -284,31 +251,21 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 24px;
-            /* Larger font size */
             color: #000;
             background-color: #00FF00;
-            /* Solid green background */
             padding: 10px;
-            /* Increase padding */
             border-radius: 10px;
-            /* Rounder corners */
             font-family: "Rowdies", sans-serif;
-            /* Use Rowdies font */
             font-weight: bold;
-            /* Bold font weight */
             text-align: center;
-            /* Center text */
             text-transform: uppercase;
-            /* Uppercase text */
         }
 
         #lives {
             margin-top: 20px;
             font-size: 36px;
-            /* Larger font size for lives indicator */
             text-align: center;
             color: #333;
-            /* Dark color */
         }
     </style>
 </head>
@@ -324,7 +281,7 @@
         <button id="shuffle-cards" class="h2 gradient-button">Shuffle Cards</button>
     </div>
     <p class="result"></p>
-    <div id="lives">Lives: <span id="lives-count">🏀 🏀 🏀 </span></div> <!-- Updated lives display -->
+    <div id="lives">Lives: <span id="lives-count">🏀 🏀 🏀 </span></div>
     </div>
 
     <script>
@@ -356,7 +313,6 @@
         function generatePlayerBoxes() {
             const grid = document.querySelector('.grid');
 
-            // Shuffle player data
             shuffleArray(playerData);
 
             playerData.forEach((player, index) => {
@@ -409,7 +365,7 @@
         }
 
         function checkAnswer() {
-            const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // Include the "the" category
+            const categories = ['the', 'mvp', 'spurs', 'drafted2003'];
             let similarity = '';
 
             categories.forEach(category => {
@@ -421,40 +377,35 @@
 
             if (similarity) {
                 result.textContent = 'You are correct!';
-                result.style.color = '#00FF00'; // Green color for correct message
-                result.style.fontSize = '24px'; // Larger font size for correct message
-                result.style.textAlign = 'center'; // Center text
-                result.style.fontFamily = '"Rowdies", sans-serif'; // Use the same font as h1
+                result.style.color = '#00FF00';
+                result.style.fontSize = '24px';
+                result.style.textAlign = 'center';
+                result.style.fontFamily = '"Rowdies", sans-serif';
 
-                // Disable click on selected boxes
                 selectedBoxes.forEach(box => {
                     box.removeEventListener('click', () => toggleSelection(box));
                     box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(similarity)}</span>`;
                     box.classList.add('correct-answer');
                 });
 
-                // Clear selected boxes
                 selectedBoxes = [];
             } else {
                 result.textContent = 'Incorrect selection. Please try again.';
-                result.style.color = '#FF0000'; // Red color for incorrect message
-                result.style.fontSize = '24px'; // Larger font size for incorrect message
-                result.style.textAlign = 'center'; // Center text
-                result.style.fontFamily = '"Rowdies", sans-serif'; // Use the same font as h1
+                result.style.color = '#FF0000';
+                result.style.fontSize = '24px';
+                result.style.textAlign = 'center';
+                result.style.fontFamily = '"Rowdies", sans-serif';
 
-                // Decrement lives if the selection is incorrect
                 lives--;
                 updateLivesDisplay();
                 if (lives === 0) {
-                    result.textContent = 'Game Over!'; // Display game over message when lives run out
-                    // Display correct answers
+                    result.textContent = 'Game Over!';
                     setTimeout(() => {
                         displayCorrectAnswers();
                     }, 1000);
                     return;
                 }
 
-                // Shake animation for incorrect selection
                 selectedBoxes.forEach(box => {
                     box.classList.add('shake');
                     setTimeout(() => {
@@ -462,7 +413,6 @@
                     }, 500);
                 });
 
-                // Turn selected boxes red temporarily
                 selectedBoxes.forEach(box => {
                     box.classList.add('incorrect-selection');
                     setTimeout(() => {
@@ -470,7 +420,6 @@
                     }, 500);
                 });
 
-                // Clear selected boxes after a delay
                 setTimeout(() => {
                     selectedBoxes.forEach(box => {
                         box.classList.remove('selected');
@@ -482,19 +431,18 @@
 
         function updateLivesDisplay() {
             const livesCount = document.getElementById('lives-count');
-            livesCount.textContent = '🏀 '.repeat(lives); // Display remaining lives as basketball emojis
+            livesCount.textContent = '🏀 '.repeat(lives);
         }
 
 
 
         function displayCorrectAnswers() {
-            const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // List of categories
+            const categories = ['the', 'mvp', 'spurs', 'drafted2003'];
 
             const allBoxes = document.querySelectorAll('.box');
 
             categories.forEach(category => {
                 allBoxes.forEach(box => {
-                    // Check if the box matches the current category and mark it as correct
                     if (box.dataset[category] === 'true') {
                         box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(category)}</span>`;
                         box.classList.add('correct-answer');
@@ -527,7 +475,6 @@
 
         generatePlayerBoxes();
 
-        // Function to shuffle array elements
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -542,14 +489,11 @@
             const grid = document.querySelector('.grid');
             const boxes = document.querySelectorAll('.box');
 
-            // Remove existing boxes
             boxes.forEach(box => grid.removeChild(box));
 
-            // Generate and append shuffled boxes
             generatePlayerBoxes();
         }
 
-        // Function to get category label
         function getCategoryLabel(category) {
             switch (category) {
                 case 'the':
