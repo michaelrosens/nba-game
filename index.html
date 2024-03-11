@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="NBA">NBA Connections</title>
     <h1 class="h1">NBA Connections</h1>
-    <h2 class="h2"> Select 4 players that you believe have something in common with one another, then check yourself!</h2>
+    <h2 class="h2"> Select 4 players that you believe have something in common with one another, then check yourself!
+    </h2>
     <h2 class="h2"> Example: Kobe, Shaq, Magic, Gasol = Alltime Lakers</h2>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -26,29 +27,35 @@
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
         }
 
-        .h1{
+        .h1 {
             font-family: "Rowdies", sans-serif;
             font-weight: 700;
             font-style: normal;
             font-size: 90px;
         }
 
-        .h2{
+        .h2 {
             font-family: "Rowdies", sans-serif;
             font-weight: 200;
             font-style: normal;
-            text-align: center; /* Horizontal centering */
-            display: flex; /* Enable Flexbox */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
+            text-align: center;
+            /* Horizontal centering */
+            display: flex;
+            /* Enable Flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
         }
 
         .container {
@@ -65,7 +72,8 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust the minimum width of each box */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            /* Adjust the minimum width of each box */
             gap: 20px;
         }
 
@@ -130,6 +138,43 @@
             display: none;
         }
 
+        .gradient-button {
+    background: linear-gradient(45deg, #4CAF50, #2196F3);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    /* Increased padding for larger size */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    /* Increased font size for larger buttons */
+    cursor: pointer;
+    border-radius: 10px;
+    /* Rounded corners for a smoother appearance */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Added transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Added shadow for depth */
+    width: 400px; /* Added width */
+    height: 60px; /* Added height */
+}
+
+
+        .gradient-button:hover {
+            background: linear-gradient(45deg, #45a049, #1e87db);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            /* Adjusted shadow on hover */
+        }
+
+        .gradient-button:active {
+            transform: scale(0.95);
+            /* Added scale effect on click for glossy appearance */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            /* Adjusted shadow on click */
+        }
+
+
         #check-answer {
             margin: 20px auto;
             padding: 10px 20px;
@@ -154,20 +199,83 @@
             animation: shakeAnimation 0.5s ease;
         }
 
+
+
+        .gradient-button {
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            /* Increased padding for larger size */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            /* Increased font size for larger buttons */
+            cursor: pointer;
+            border-radius: 10px;
+            /* Rounded corners for a smoother appearance */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            /* Added transition */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Added shadow for depth */
+        }
+
+        .gradient-button:hover {
+            background: linear-gradient(45deg, #45a049, #1e87db);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            /* Adjusted shadow on hover */
+        }
+
+        .gradient-button:active {
+            transform: scale(0.95);
+            /* Added scale effect on click for glossy appearance */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            /* Adjusted shadow on click */
+        }
+
+
+
         @keyframes shakeAnimation {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-10px);
+            }
+
+            50% {
+                transform: translateX(10px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
         }
 
         .correct-answer {
-            pointer-events: none; /* Disable click on selected boxes */
-            border: 4px solid #00FF00; /* Green border */
-            background-color: #6effb1; /* Light green background */
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Green shadow */
+            pointer-events: none;
+            /* Disable click on selected boxes */
+            border: 4px solid #00FF00;
+            /* Green border */
+            background-color: #6effb1;
+            /* Light green background */
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            /* Green shadow */
         }
+
+        #shuffle-cards,
+        #check-answer {
+            display: block;
+            margin: 2px auto;
+            /* Adjust vertical spacing between buttons */
+        }
+
 
         .correct-answer .name {
             display: block !important;
@@ -175,259 +283,288 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 24px; /* Larger font size */
+            font-size: 24px;
+            /* Larger font size */
             color: #000;
-            background-color: #00FF00; /* Solid green background */
-            padding: 10px; /* Increase padding */
-            border-radius: 10px; /* Rounder corners */
-            font-family: "Rowdies", sans-serif; /* Use Rowdies font */
-            font-weight: bold; /* Bold font weight */
-            text-align: center; /* Center text */
-            text-transform: uppercase; /* Uppercase text */
+            background-color: #00FF00;
+            /* Solid green background */
+            padding: 10px;
+            /* Increase padding */
+            border-radius: 10px;
+            /* Rounder corners */
+            font-family: "Rowdies", sans-serif;
+            /* Use Rowdies font */
+            font-weight: bold;
+            /* Bold font weight */
+            text-align: center;
+            /* Center text */
+            text-transform: uppercase;
+            /* Uppercase text */
         }
 
         #lives {
             margin-top: 20px;
-            font-size: 36px; /* Larger font size for lives indicator */
+            font-size: 36px;
+            /* Larger font size for lives indicator */
             text-align: center;
-            color: #333; /* Dark color */
+            color: #333;
+            /* Dark color */
         }
-
     </style>
 </head>
+
 <body>
-<div class="container">
-    <div class="grid">
-        <!-- Player boxes will be generated here -->
+    <div class="container">
+        <div class="grid">
+            <!-- Player boxes will be generated here -->
+        </div>
     </div>
-    <button id="check-answer" disabled class="h2">Check Selected Similarity</button>
+    <div class="button-container">
+        <button id="check-answer" disabled class="h2 gradient-button">Check Selected Similarity</button>
+        <button id="shuffle-cards" class="h2 gradient-button">Shuffle Cards</button>
+    </div>
     <p class="result"></p>
     <div id="lives">Lives: <span id="lives-count">🏀 🏀 🏀 </span></div> <!-- Updated lives display -->
-</div>
+    </div>
 
-<script>
-    const playerData = [
-        { imgSrc: 'stephen_curry.jpg', alt: 'JJJ', name: 'Steph Curry', the: true, mvp: false, spurs: false, drafted2003: false },
-        { imgSrc: 'ray_allen.jpg', alt: 'Giannis', name: 'Ray Allen', the: true, mvp: false, spurs: false, drafted2003: false },
-        { imgSrc: 'derrick_rose.avif', alt: 'Derrick Rose', name: 'Derrick Rose', the: false, mvp: true, spurs: false, drafted2003: false },
-        { imgSrc: 'joel_embiid.avif', alt: 'Joel Embiid', name: 'Joel Embiid', the: false, mvp: true, spurs: false, drafted2003: false },
-        { imgSrc: 'dwyane_wade.jpg', alt: 'Dwyane Wade', name: 'Dwyane Wade', the: false, mvp: false, spurs: false, drafted2003: true },
-        { imgSrc: 'tim_duncan.avif', alt: 'Tim Duncan', name: 'Tim Duncan', the: false, mvp: false, spurs: true, drafted2003: false },
-        { imgSrc: 'tony_parker.png', alt: 'Tony Parker', name: 'Tony Parker', the: false, mvp: false, spurs: true, drafted2003: false },
-        { imgSrc: 'damian.jpg', alt: 'Rudy Gobert', name: 'Damian Lillard', the: true, mvp: false, spurs: false, drafted2003: false },
-        { imgSrc: 'victor.png', alt: 'Victor Oladipo', name: 'Victor Wembanyama', the: false, mvp: false, spurs: true, drafted2003: false },
-        { imgSrc: 'james_harden.jpg', alt: 'Hakeem Olajuwon', name: 'James Harden', the: true, mvp: false, spurs: false, drafted2003: false },
-        { imgSrc: 'dirk_nowitzki.jpg', alt: 'Dirk Nowitzki', name: 'Dirk Nowitzki', the: false, mvp: true, spurs: false, drafted2003: false },
-        { imgSrc: 'chris_bosh.jpg', alt: 'Chris Bosh', name: 'Chris Bosh', the: false, mvp: false, spurs: false, drafted2003: true },
-        { imgSrc: 'kawhi.jpg', alt: 'Kawhi Leonard', name: 'Kawhi Leonard', the: false, mvp: false, spurs: true, drafted2003: false },
-        { imgSrc: 'i.png', alt: 'Carmelo Anthony', name: 'Carmelo Anthony', the: false, mvp: false, spurs: false, drafted2003: true },
-        { imgSrc: 'kevin_garnett.jpg', alt: 'Kevin Garnett', name: 'Kevin Garnett', the: false, mvp: true, spurs: false, drafted2003: false },
-        { imgSrc: 'kyle_korver.jpg', alt: 'Kyle Korver', name: 'Kyle Korver', the: false, mvp: false, spurs: false, drafted2003: true }
-    ];
+    <script>
+        const playerData = [
+            { imgSrc: 'stephen_curry.jpg', alt: 'JJJ', name: 'Steph Curry', the: true, mvp: false, spurs: false, drafted2003: false },
+            { imgSrc: 'ray_allen.jpg', alt: 'Giannis', name: 'Ray Allen', the: true, mvp: false, spurs: false, drafted2003: false },
+            { imgSrc: 'derrick_rose.avif', alt: 'Derrick Rose', name: 'Derrick Rose', the: false, mvp: true, spurs: false, drafted2003: false },
+            { imgSrc: 'joel_embiid.avif', alt: 'Joel Embiid', name: 'Joel Embiid', the: false, mvp: true, spurs: false, drafted2003: false },
+            { imgSrc: 'dwyane_wade.jpg', alt: 'Dwyane Wade', name: 'Dwyane Wade', the: false, mvp: false, spurs: false, drafted2003: true },
+            { imgSrc: 'tim_duncan.avif', alt: 'Tim Duncan', name: 'Tim Duncan', the: false, mvp: false, spurs: true, drafted2003: false },
+            { imgSrc: 'tony_parker.png', alt: 'Tony Parker', name: 'Tony Parker', the: false, mvp: false, spurs: true, drafted2003: false },
+            { imgSrc: 'damian.jpg', alt: 'Rudy Gobert', name: 'Damian Lillard', the: true, mvp: false, spurs: false, drafted2003: false },
+            { imgSrc: 'victor.png', alt: 'Victor Oladipo', name: 'Victor Wembanyama', the: false, mvp: false, spurs: true, drafted2003: false },
+            { imgSrc: 'james_harden.jpg', alt: 'Hakeem Olajuwon', name: 'James Harden', the: true, mvp: false, spurs: false, drafted2003: false },
+            { imgSrc: 'dirk_nowitzki.jpg', alt: 'Dirk Nowitzki', name: 'Dirk Nowitzki', the: false, mvp: true, spurs: false, drafted2003: false },
+            { imgSrc: 'chris_bosh.jpg', alt: 'Chris Bosh', name: 'Chris Bosh', the: false, mvp: false, spurs: false, drafted2003: true },
+            { imgSrc: 'kawhi.jpg', alt: 'Kawhi Leonard', name: 'Kawhi Leonard', the: false, mvp: false, spurs: true, drafted2003: false },
+            { imgSrc: 'i.png', alt: 'Carmelo Anthony', name: 'Carmelo Anthony', the: false, mvp: false, spurs: false, drafted2003: true },
+            { imgSrc: 'kevin_garnett.jpg', alt: 'Kevin Garnett', name: 'Kevin Garnett', the: false, mvp: true, spurs: false, drafted2003: false },
+            { imgSrc: 'kyle_korver.jpg', alt: 'Kyle Korver', name: 'Kyle Korver', the: false, mvp: false, spurs: false, drafted2003: true }
+        ];
 
-    const boxes = document.querySelectorAll('.box');
-    const checkAnswerButton = document.getElementById('check-answer');
-    const result = document.querySelector('.result');
-    let selectedBoxes = [];
-    let lives = 3;
+        const boxes = document.querySelectorAll('.box');
+        const checkAnswerButton = document.getElementById('check-answer');
+        const result = document.querySelector('.result');
+        let selectedBoxes = [];
+        let lives = 3;
 
-    function generatePlayerBoxes() {
-        const grid = document.querySelector('.grid');
+        function generatePlayerBoxes() {
+            const grid = document.querySelector('.grid');
 
-        // Shuffle player data
-        shuffleArray(playerData);
+            // Shuffle player data
+            shuffleArray(playerData);
 
-        playerData.forEach((player, index) => {
-            const box = document.createElement('div');
-            box.classList.add('box');
-            box.dataset.name = player.name;
-            box.dataset.the = player.the;
-            box.dataset.mvp = player.mvp;
-            box.dataset.spurs = player.spurs;
-            box.dataset.drafted2003 = player.drafted2003;
+            playerData.forEach((player, index) => {
+                const box = document.createElement('div');
+                box.classList.add('box');
+                box.dataset.name = player.name;
+                box.dataset.the = player.the;
+                box.dataset.mvp = player.mvp;
+                box.dataset.spurs = player.spurs;
+                box.dataset.drafted2003 = player.drafted2003;
 
-            const img = document.createElement('img');
-            img.src = player.imgSrc;
-            img.alt = player.name;
-            box.appendChild(img);
+                const img = document.createElement('img');
+                img.src = player.imgSrc;
+                img.alt = player.name;
+                box.appendChild(img);
 
-            const revealNameButton = document.createElement('button');
-            revealNameButton.textContent = 'Reveal Name';
-            revealNameButton.classList.add('reveal-name-button');
-            revealNameButton.addEventListener('click', (event) => {
-                event.stopPropagation();
-                toggleRevealName(box, revealNameButton);
-            });
-            box.appendChild(revealNameButton);
-
-            const playerNameDisplay = document.createElement('div');
-            playerNameDisplay.textContent = player.name;
-            playerNameDisplay.classList.add('name');
-            box.appendChild(playerNameDisplay);
-
-            box.addEventListener('click', () => toggleSelection(box));
-            grid.appendChild(box);
-        });
-    }
-
-    function toggleSelection(box) {
-        if (selectedBoxes.includes(box)) {
-            box.classList.remove('selected');
-            selectedBoxes.splice(selectedBoxes.indexOf(box), 1);
-        } else if (selectedBoxes.length < 4) {
-            box.classList.add('selected');
-            selectedBoxes.push(box);
-        }
-
-        updateCheckButtonState();
-    }
-
-    function updateCheckButtonState() {
-        checkAnswerButton.disabled = selectedBoxes.length !== 4;
-    }
-
-    function checkAnswer() {
-        const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // Include the "the" category
-        let similarity = '';
-
-        categories.forEach(category => {
-            const values = selectedBoxes.map(box => box.dataset[category]);
-            if (values.every((val, i, arr) => val === arr[0]) && values[0] === 'true') {
-                similarity = category;
-            }
-        });
-
-        if (similarity) {
-            result.textContent = 'You are correct!';
-            result.style.color = '#00FF00'; // Green color for correct message
-            result.style.fontSize = '24px'; // Larger font size for correct message
-            result.style.textAlign = 'center'; // Center text
-            result.style.fontFamily = '"Rowdies", sans-serif'; // Use the same font as h1
-
-            // Disable click on selected boxes
-            selectedBoxes.forEach(box => {
-                box.removeEventListener('click', () => toggleSelection(box));
-                box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(similarity)}</span>`;
-                box.classList.add('correct-answer');
-            });
-
-            // Clear selected boxes
-            selectedBoxes = [];
-        } else {
-            result.textContent = 'Incorrect selection. Please try again.';
-            result.style.color = '#FF0000'; // Red color for incorrect message
-            result.style.fontSize = '24px'; // Larger font size for incorrect message
-            result.style.textAlign = 'center'; // Center text
-            result.style.fontFamily = '"Rowdies", sans-serif'; // Use the same font as h1
-
-            // Decrement lives if the selection is incorrect
-            lives--;
-            updateLivesDisplay();
-            if (lives === 0) {
-                result.textContent = 'Game Over!'; // Display game over message when lives run out
-                // Display correct answers
-                setTimeout(() => {
-                    displayCorrectAnswers();
-                }, 1000);
-                return;
-            }
-
-            // Shake animation for incorrect selection
-            selectedBoxes.forEach(box => {
-                box.classList.add('shake');
-                setTimeout(() => {
-                    box.classList.remove('shake');
-                }, 500);
-            });
-
-            // Turn selected boxes red temporarily
-            selectedBoxes.forEach(box => {
-                box.classList.add('incorrect-selection');
-                setTimeout(() => {
-                    box.classList.remove('incorrect-selection');
-                }, 500);
-            });
-
-            // Clear selected boxes after a delay
-            setTimeout(() => {
-                selectedBoxes.forEach(box => {
-                    box.classList.remove('selected');
+                const revealNameButton = document.createElement('button');
+                revealNameButton.textContent = 'Reveal Name';
+                revealNameButton.classList.add('reveal-name-button');
+                revealNameButton.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    toggleRevealName(box, revealNameButton);
                 });
-                selectedBoxes = [];
-            }, 1000);
+                box.appendChild(revealNameButton);
+
+                const playerNameDisplay = document.createElement('div');
+                playerNameDisplay.textContent = player.name;
+                playerNameDisplay.classList.add('name');
+                box.appendChild(playerNameDisplay);
+
+                box.addEventListener('click', () => toggleSelection(box));
+                grid.appendChild(box);
+            });
         }
-    }
 
-    function updateLivesDisplay() {
-        const livesCount = document.getElementById('lives-count');
-        livesCount.textContent = '🏀 '.repeat(lives); // Display remaining lives as basketball emojis
-    }
+        function toggleSelection(box) {
+            if (selectedBoxes.includes(box)) {
+                box.classList.remove('selected');
+                selectedBoxes.splice(selectedBoxes.indexOf(box), 1);
+            } else if (selectedBoxes.length < 4) {
+                box.classList.add('selected');
+                selectedBoxes.push(box);
+            }
 
+            updateCheckButtonState();
+        }
 
-    function displayCorrectAnswers() {
-        let delay = 0; // Delay between filling correct categories
-        const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // List of categories
+        function updateCheckButtonState() {
+            checkAnswerButton.disabled = selectedBoxes.length !== 4;
+        }
 
-        categories.forEach(category => {
-            setTimeout(() => {
+        function checkAnswer() {
+            const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // Include the "the" category
+            let similarity = '';
+
+            categories.forEach(category => {
+                const values = selectedBoxes.map(box => box.dataset[category]);
+                if (values.every((val, i, arr) => val === arr[0]) && values[0] === 'true') {
+                    similarity = category;
+                }
+            });
+
+            if (similarity) {
+                result.textContent = 'You are correct!';
+                result.style.color = '#00FF00'; // Green color for correct message
+                result.style.fontSize = '24px'; // Larger font size for correct message
+                result.style.textAlign = 'center'; // Center text
+                result.style.fontFamily = '"Rowdies", sans-serif'; // Use the same font as h1
+
+                // Disable click on selected boxes
                 selectedBoxes.forEach(box => {
+                    box.removeEventListener('click', () => toggleSelection(box));
+                    box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(similarity)}</span>`;
+                    box.classList.add('correct-answer');
+                });
+
+                // Clear selected boxes
+                selectedBoxes = [];
+            } else {
+                result.textContent = 'Incorrect selection. Please try again.';
+                result.style.color = '#FF0000'; // Red color for incorrect message
+                result.style.fontSize = '24px'; // Larger font size for incorrect message
+                result.style.textAlign = 'center'; // Center text
+                result.style.fontFamily = '"Rowdies", sans-serif'; // Use the same font as h1
+
+                // Decrement lives if the selection is incorrect
+                lives--;
+                updateLivesDisplay();
+                if (lives === 0) {
+                    result.textContent = 'Game Over!'; // Display game over message when lives run out
+                    // Display correct answers
+                    setTimeout(() => {
+                        displayCorrectAnswers();
+                    }, 1000);
+                    return;
+                }
+
+                // Shake animation for incorrect selection
+                selectedBoxes.forEach(box => {
+                    box.classList.add('shake');
+                    setTimeout(() => {
+                        box.classList.remove('shake');
+                    }, 500);
+                });
+
+                // Turn selected boxes red temporarily
+                selectedBoxes.forEach(box => {
+                    box.classList.add('incorrect-selection');
+                    setTimeout(() => {
+                        box.classList.remove('incorrect-selection');
+                    }, 500);
+                });
+
+                // Clear selected boxes after a delay
+                setTimeout(() => {
+                    selectedBoxes.forEach(box => {
+                        box.classList.remove('selected');
+                    });
+                    selectedBoxes = [];
+                }, 1000);
+            }
+        }
+
+        function updateLivesDisplay() {
+            const livesCount = document.getElementById('lives-count');
+            livesCount.textContent = '🏀 '.repeat(lives); // Display remaining lives as basketball emojis
+        }
+
+
+
+        function displayCorrectAnswers() {
+            const categories = ['the', 'mvp', 'spurs', 'drafted2003']; // List of categories
+
+            const allBoxes = document.querySelectorAll('.box');
+
+            categories.forEach(category => {
+                allBoxes.forEach(box => {
                     // Check if the box matches the current category and mark it as correct
                     if (box.dataset[category] === 'true') {
                         box.innerHTML = `<span class="name">Similarity: ${getCategoryLabel(category)}</span>`;
                         box.classList.add('correct-answer');
                     }
                 });
-            }, delay);
-            delay += 500; // Increment delay for each category
+            });
+        }
+
+
+
+        function toggleRevealName(box, revealButton) {
+            const playerNameDisplay = box.querySelector('.name');
+            const buttonLabel = revealButton.textContent;
+            if (buttonLabel === 'Reveal Name') {
+                playerNameDisplay.style.display = 'block';
+                revealButton.textContent = 'Unreveal Name';
+            } else {
+                playerNameDisplay.style.display = 'none';
+                revealButton.textContent = 'Reveal Name';
+            }
+        }
+
+        checkAnswerButton.addEventListener('click', () => {
+            checkAnswer();
+            checkAnswerButton.classList.add('fade');
+            setTimeout(() => {
+                checkAnswerButton.classList.remove('fade');
+            }, 500);
         });
-    }
 
+        generatePlayerBoxes();
 
-    function toggleRevealName(box, revealButton) {
-        const playerNameDisplay = box.querySelector('.name');
-        const buttonLabel = revealButton.textContent;
-        if (buttonLabel === 'Reveal Name') {
-            playerNameDisplay.style.display = 'block';
-            revealButton.textContent = 'Unreveal Name';
-        } else {
-            playerNameDisplay.style.display = 'none';
-            revealButton.textContent = 'Reveal Name';
+        // Function to shuffle array elements
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
         }
-    }
 
-    checkAnswerButton.addEventListener('click', () => {
-        checkAnswer();
-        checkAnswerButton.classList.add('fade');
-        setTimeout(() => {
-            checkAnswerButton.classList.remove('fade');
-        }, 500);
-    });
+        const shuffleButton = document.getElementById('shuffle-cards');
+        shuffleButton.addEventListener('click', shufflePlayerBoxes);
 
-    generatePlayerBoxes();
+        function shufflePlayerBoxes() {
+            const grid = document.querySelector('.grid');
+            const boxes = document.querySelectorAll('.box');
 
-    // Function to shuffle array elements
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+            // Remove existing boxes
+            boxes.forEach(box => grid.removeChild(box));
+
+            // Generate and append shuffled boxes
+            generatePlayerBoxes();
         }
-    }
 
-    // Function to get category label
-    function getCategoryLabel(category) {
-        switch (category) {
-            case 'the':
-                return 'Top 4 in all-time 3 pointers made';
-            case 'mvp':
-                return 'Won MVP Award';
-            case 'spurs':
-                return 'Played on the Spurs';
-            case 'drafted2003':
-                return 'Drafted in 2003';
-            default:
-                return '';
+        // Function to get category label
+        function getCategoryLabel(category) {
+            switch (category) {
+                case 'the':
+                    return 'Top 4 in all-time 3 pointers made';
+                case 'mvp':
+                    return 'Won MVP Award';
+                case 'spurs':
+                    return 'Played on the Spurs';
+                case 'drafted2003':
+                    return 'Drafted in 2003';
+                default:
+                    return '';
+            }
         }
-    }
-</script>
+    </script>
 </body>
+
 </html>
